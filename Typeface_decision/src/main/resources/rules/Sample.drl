@@ -1,0 +1,499 @@
+package com.sample
+import javax.swing.*;
+
+import com.sample.DroolsTest.*;
+ 
+rule "init"
+	when
+	then
+		String q = "Start out by choosing the kind of project that you'll need your typeface for";
+		String[] a = {"Logo", "Invitation", "Infographic"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+// Logo Path
+rule "logo"
+	when
+		Question(Q.equals("Start out by choosing the kind of project that you'll need your typeface for"), A.equals("Logo"));
+	then
+		String q = "A Sans-serif maybe? Or perhaps a Serif?";
+		String[] a = {"Sans-serif", "Serif"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "sans-serif"
+	when
+		Question(Q.equals("A Sans-serif maybe? Or perhaps a Serif?"), A.equals("Sans-serif"));
+	then
+		String q = "You like geometrics?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "geometrics - yes"
+	when
+		Question(Q.equals("You like geometrics?"), A.equals("Yes"));
+	then
+		String q = "Do you like futura?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "Futura"
+	when
+		Question(Q.equals("Do you like futura?"), A.equals("Yes"));
+	then
+		String q = "You should use ";
+		String a = "Futura";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "Metro"
+	when
+		Question(Q.equals("Do you like futura?"), A.equals("No"));
+	then
+		String q = "You should use ";
+		String a = "Metro";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "geometrics - no"
+	when
+		Question(Q.equals("You like geometrics?"), A.equals("No"));
+	then
+		String q = "A neo-grotesk perhaps?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "neo-grotesk - yes"
+	when
+		Question(Q.equals("A neo-grotesk perhaps?"), A.equals("Yes"));
+	then
+		String q = "If I say \"Science fiction movies are my favourite\"";
+		String[] a = {"Good", "Bad"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "Eurostile"
+	when
+		Question(Q.equals("If I say \"Science fiction movies are my favourite\""), A.equals("Good"));
+	then
+		String q = "You should use ";
+		String a = "Eurostile";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "Helvetica"
+	when
+		Question(Q.equals("If I say \"Science fiction movies are my favourite\""), A.equals("Bad"));
+	then
+		String q = "You should use ";
+		String a = "Helvetica";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "neo-grotesk - no"
+	when
+		Question(Q.equals("A neo-grotesk perhaps?"), A.equals("No"));
+	then
+		String q = "Something humanistic then?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "humanistic - yes"
+	when
+		Question(Q.equals("Something humanistic then?"), A.equals("Yes"));
+	then
+		String q = "Do you like the look of Adobe?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "Myriad"
+	when
+		Question(Q.equals("Do you like the look of Adobe?"), A.equals("Yes"));
+	then
+		String q = "You should use ";
+		String a = "Myriad";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "Frutiger"
+	when
+		Question(Q.equals("Do you like the look of Adobe?"), A.equals("No"));
+	then
+		String q = "You should use ";
+		String a = "Frutiger";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "humanistic - no"
+	when
+		Question(Q.equals("Something humanistic then?"), A.equals("No"));
+	then
+		String q = "How about something classic?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "Akzidenz Grotesk"
+	when
+		Question(Q.equals("How about something classic?"), A.equals("Yes"));
+	then
+		String q = "You should use ";
+		String a = "Akzidenz Grotesk";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "classic - no"
+	when
+		Question(Q.equals("How about something classic?"), A.equals("No"));
+	then
+		String q = "Then we only have something decorative";
+		String a = "Ok";
+		JOptionPane.showMessageDialog(null, q, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "Peignot"
+	when
+		Question(Q.equals("Then we only have something decorative"), A.equals("Ok"));
+	then
+		String q = "You should use ";
+		String a = "Peignot";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "serif"
+	when
+		Question(Q.equals("A Sans-serif maybe? Or perhaps a Serif?"), A.equals("Serif"));
+	then
+		String q = "How do the words semi-sans, semi serif sound?";
+		String[] a = {"Good", "Bad"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "Rotis"
+	when
+		Question(Q.equals("How do the words semi-sans, semi serif sound?"), A.equals("Good"));
+	then
+		String q = "You should use ";
+		String a = "Rotis";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "sounds bad"
+	when
+		Question(Q.equals("How do the words semi-sans, semi serif sound?"), A.equals("Bad"));
+	then
+		String q = "Something new, got serifs, got sans?";
+		String[] a = {"Good", "Bad"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "Fedra"
+	when
+		Question(Q.equals("Something new, got serifs, got sans?"), A.equals("Good"));
+	then
+		String q = "You should use ";
+		String a = "Fedra";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "also sound bad"
+	when
+		Question(Q.equals("Something new, got serifs, got sans?"), A.equals("Bad"));
+	then
+		String q = "Is it an Italian Restaurant?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "Bodoni"
+	when
+		Question(Q.equals("Is it an Italian Restaurant?"), A.equals("Yes"))
+		or
+		Question(Q.equals("What about hairlines?"), A.equals("Thin hairlines"))
+	then
+		String q = "You should use ";
+		String a = "Bodoni";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "no italiano"
+	when
+		Question(Q.equals("Is it an Italian Restaurant?"), A.equals("No"));
+	then
+		String q = "Got a whole bunch of office correspondence?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "Lexicon"
+	when
+		Question(Q.equals("Got a whole bunch of office correspondence?"), A.equals("Yes"));
+	then
+		String q = "You should use ";
+		String a = "Lexicon";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "office - no"
+	when
+		Question(Q.equals("Got a whole bunch of office correspondence?"), A.equals("No"));
+	then
+		String q = "Here we have a classic waiting for you";
+		String a = "Ok";
+		JOptionPane.showMessageDialog(null, q, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "Palatino"
+	when
+		Question(Q.equals("Here we have a classic waiting for you"), A.equals("Ok"));
+	then
+		String q = "You should use ";
+		String a = "Palatino";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+// Invitation Path
+rule "invitation"
+	when
+		Question(Q.equals("Start out by choosing the kind of project that you'll need your typeface for"), A.equals("Invitation"));
+	then
+		String q = "Like something handwritten, do you?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "handwritten - yes"
+	when
+		Question(Q.equals("Like something handwritten, do you?"), A.equals("Yes"));
+	then
+		String q = "Something calligraphic, maybe?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "Zapfino"
+	when
+		Question(Q.equals("Something calligraphic, maybe?"), A.equals("Yes"));
+	then
+		String q = "You should use ";
+		String a = "Zapfino";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "FF Erikrighthand"
+	when
+		Question(Q.equals("Something calligraphic, maybe?"), A.equals("No"));
+	then
+		String q = "You should use ";
+		String a = "FF Erikrighthand";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "handwritten - no"
+	when
+		Question(Q.equals("Like something handwritten, do you?"), A.equals("No"));
+	then
+		String q = "How about something a bit fancy?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "fancy - yes"
+	when
+		Question(Q.equals("How about something a bit fancy?"), A.equals("Yes"));
+	then
+		String q = "What about hairlines?";
+		String[] a = {"Thin hairlines", "Thinner hairlines"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+//yes - Bodoni rule
+
+rule "thinner hairlines"
+	when
+		Question(Q.equals("What about hairlines?"), A.equals("Thinner hairlines"));
+	then
+		String q = "Readability?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "Walbaum"
+	when
+		Question(Q.equals("Readability?"), A.equals("Yes"));
+	then
+		String q = "You should use ";
+		String a = "Walbaum";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "Didot"
+	when
+		Question(Q.equals("Readability?"), A.equals("No"));
+	then
+		String q = "You should use ";
+		String a = "Didot";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "fancy - no"
+	when
+		Question(Q.equals("How about something a bit fancy?"), A.equals("No"));
+	then
+		String q = "Something fun then?";
+		String a = "Ok";
+		JOptionPane.showMessageDialog(null, q, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "fun"
+	when
+		Question(Q.equals("Something fun then?"), A.equals("Ok"));
+	then
+		String q = "Are you alone?";
+		String[] a = {"Yes"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "alone"
+	when
+		Question(Q.equals("Are you alone?"), A.equals("Yes"));
+	then
+		String q = "Okay then, come with me";
+		String a = "Ok";
+		JOptionPane.showMessageDialog(null, q, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "Comic Sans"
+	when
+		Question(Q.equals("Okay then, come with me"), A.equals("Ok"));
+	then
+		String q = "You should use ";
+		String a = "Comic Sans";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+// Infographic Path
+rule "infographic"
+	when
+		Question(Q.equals("Start out by choosing the kind of project that you'll need your typeface for"), A.equals("Infographic"));
+	then
+		String q = "We all like something very condesnsed, yes?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "Univers"
+	when
+		Question(Q.equals("We all like something very condesnsed, yes?"), A.equals("Yes"));
+	then
+		String q = "You should use ";
+		String a = "Univers";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "condensed - no"
+	when
+		Question(Q.equals("We all like something very condesnsed, yes?"), A.equals("No"));
+	then
+		String q = "Got a lot of tables, have you?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "Letter Gothic"
+	when
+		Question(Q.equals("Got a lot of tables, have you?"), A.equals("Yes"));
+	then
+		String q = "You should use ";
+		String a = "Letter Gothic";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "tables - no"
+	when
+		Question(Q.equals("Got a lot of tables, have you?"), A.equals("No"));
+	then
+		String q = "You cried when watching Terminator?";
+		String[] a = {"Yes", "No"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "OCR"
+	when
+		Question(Q.equals("You cried when watching Terminator?"), A.equals("Yes"));
+	then
+		String q = "You should use ";
+		String a = "OCR";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
+
+rule "Terminator - no"
+	when
+		Question(Q.equals("You cried when watching Terminator?"), A.equals("No"));
+	then
+		String q = "I must say that this flowchart is looking hot";
+		String[] a = {"Yes"};
+		int index = JOptionPane.showOptionDialog(null, q, "So you need a typeface", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, a, a[0]);
+		insert(new Question(q, a[index]));
+end
+
+rule "FF DIN"
+	when
+		Question(Q.equals("I must say that this flowchart is looking hot"), A.equals("Yes"));
+	then
+		String q = "You should use ";
+		String a = "FF DIN";
+		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+		insert(new Question(q, a));
+end
