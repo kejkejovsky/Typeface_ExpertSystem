@@ -1,7 +1,9 @@
 package com.sample
 import javax.swing.*;
+import java.awt.*;
 
 import com.sample.DroolsTest.*;
+
  
 rule "init"
 	when
@@ -49,7 +51,6 @@ rule "Futura"
 	then
 		String q = "You should use ";
 		String a = "Futura";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -59,7 +60,6 @@ rule "Metro"
 	then
 		String q = "You should use ";
 		String a = "Metro";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -89,7 +89,6 @@ rule "Eurostile"
 	then
 		String q = "You should use ";
 		String a = "Eurostile";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -99,7 +98,6 @@ rule "Helvetica"
 	then
 		String q = "You should use ";
 		String a = "Helvetica";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -129,7 +127,6 @@ rule "Myriad"
 	then
 		String q = "You should use ";
 		String a = "Myriad";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -139,7 +136,6 @@ rule "Frutiger"
 	then
 		String q = "You should use ";
 		String a = "Frutiger";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -159,7 +155,6 @@ rule "Akzidenz Grotesk"
 	then
 		String q = "You should use ";
 		String a = "Akzidenz Grotesk";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -179,7 +174,6 @@ rule "Peignot"
 	then
 		String q = "You should use ";
 		String a = "Peignot";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -199,7 +193,6 @@ rule "Rotis"
 	then
 		String q = "You should use ";
 		String a = "Rotis";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -219,7 +212,6 @@ rule "Fedra"
 	then
 		String q = "You should use ";
 		String a = "Fedra";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -241,7 +233,6 @@ rule "Bodoni"
 	then
 		String q = "You should use ";
 		String a = "Bodoni";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -261,7 +252,6 @@ rule "Lexicon"
 	then
 		String q = "You should use ";
 		String a = "Lexicon";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -281,7 +271,7 @@ rule "Palatino"
 	then
 		String q = "You should use ";
 		String a = "Palatino";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+
 		insert(new Question(q, a));
 end
 
@@ -312,7 +302,6 @@ rule "Zapfino"
 	then
 		String q = "You should use ";
 		String a = "Zapfino";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -322,7 +311,6 @@ rule "FF Erikrighthand"
 	then
 		String q = "You should use ";
 		String a = "FF Erikrighthand";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -363,7 +351,6 @@ rule "Walbaum"
 	then
 		String q = "You should use ";
 		String a = "Walbaum";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -373,7 +360,6 @@ rule "Didot"
 	then
 		String q = "You should use ";
 		String a = "Didot";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -413,7 +399,6 @@ rule "Comic Sans"
 	then
 		String q = "You should use ";
 		String a = "Comic Sans";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -434,7 +419,6 @@ rule "Univers"
 	then
 		String q = "You should use ";
 		String a = "Univers";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -454,7 +438,7 @@ rule "Letter Gothic"
 	then
 		String q = "You should use ";
 		String a = "Letter Gothic";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
+
 		insert(new Question(q, a));
 end
 
@@ -474,7 +458,6 @@ rule "OCR"
 	then
 		String q = "You should use ";
 		String a = "OCR";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
 end
 
@@ -494,6 +477,13 @@ rule "FF DIN"
 	then
 		String q = "You should use ";
 		String a = "FF DIN";
-		JOptionPane.showMessageDialog(null, q+a, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE);
 		insert(new Question(q, a));
+end
+
+rule "finale"
+	when
+		q: Question(Q.equals("You should use "));
+	then
+		final ImageIcon icon = new ImageIcon("Font_images/"+q.A+".png");
+		JOptionPane.showMessageDialog(null, q.Q+q.A, "So you need a typeface", JOptionPane.INFORMATION_MESSAGE, icon);
 end
